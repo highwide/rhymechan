@@ -3,6 +3,8 @@ Japanese rhyme from Ruby
 
 # require
 elasticsearch
+nkf
+mecab
 
 # how to
 
