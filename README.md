@@ -8,11 +8,11 @@ mecab
 
 # how to
 
+Elasticsearch should be running for rhyby to work.
+
 ```
-% curl http://d.hatena.ne.jp/images/keyword/keywordlist_furigana.csv > lib/assets/keywordlist_furigana.csv
-% nkf -w lib/assets/keywordlist_furigana.csv > lib/assets/keywordlist_furigana_utf8.csv
-% elasticsearch
+% curl http://d.hatena.ne.jp/images/keyword/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana.csv
+% nkf -w vendor/keywords/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana_utf8.csv
 % bin/rake index:hatena
 % bin/rails s
 ```
-

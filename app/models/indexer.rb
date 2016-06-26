@@ -2,8 +2,9 @@ require 'csv'
 class Indexer
   attr_accessor :client
 
-  def initialize
+  def initialize(keywords_file)
     @client = Elasticsearch::Persistence.client
+    @keywords_file = keywords_file
   end
 
   def run
@@ -15,15 +16,13 @@ class Indexer
       end
       @client.bulk bulk_query(docs)
     end
-    
   end
 
   private
 
   def word_list
-    file_path = './lib/assets/keywordlist_furigana_utf8.csv'
-    CSV.open(file_path, col_sep: "\t")
-      .select { |line| line[0].present? }
+    CSV.open(@keywords_file, col_sep: "\t")
+       .select { |line| line[0].present? }
   end
 
   def mapping
