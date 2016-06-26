@@ -12,7 +12,7 @@ class VowelizableTest < ActiveSupport::TestCase
                  @vowelizable.vowelize('サイプレスウエノトロベルトヨシノ')
   end
 
-  test 'vowelize should vowelize text with small charafters' do
+  test 'vowelize should vowelize text with small characters' do
     assert_equal 'ウアエウ',
                  @vowelizable.vowelize('ヌジャベス')
     assert_equal 'アンア',
