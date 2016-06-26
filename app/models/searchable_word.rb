@@ -1,6 +1,6 @@
 class SearchableWord
   include Elasticsearch::Persistence::Model
-  include Vowelizer
+  include Vowelizable
 
   INDEX = 'seasrchable_words'.freeze
   TYPE = 'hatena'.freeze

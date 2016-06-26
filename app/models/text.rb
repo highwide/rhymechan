@@ -1,6 +1,6 @@
 class Text
   include ActiveModel::Model
-  include Vowelizer
+  include Vowelizable
 
   attr_accessor :body
   attr_accessor :parsed_text
