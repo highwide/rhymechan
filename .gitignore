@@ -21,3 +21,7 @@
 .byebug_history
 
 /vendor/bundle
+
+# keywords files
+/vendor/keywords/keywordlist_furigana.csv
+/vendor/keywords/keywordlist_furigana_utf8.csv
