@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :index do
   desc "elasticsearchにはてなキーワードをつっこむ"
   task hatena: :environment do

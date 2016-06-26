@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class SearchableWord
   include Elasticsearch::Persistence::Model
-  include Vowelizer
+  include Vowelizable
 
-  INDEX = 'seasrchable_words'.freeze
-  TYPE = 'hatena'.freeze
+  INDEX = 'seasrchable_words'
+  TYPE = 'hatena'
+
   NUMBER_OF_SHARDS = 5
   NUMBER_OF_REPLICAS = 0
 
@@ -20,14 +23,13 @@ class SearchableWord
   def initialize(word, pronunciation)
     @word = word
     @pronunciation = pronunciation
-    pron = pronunciation
-      .tr('ぁ-ん','ァ-ン')
-      .gsub(/ウ゛/, 'ヴ')
-    @vowel = vowelize(pron)
+    @vowel = vowelize(pronunciation.tr('ぁ-ん', 'ァ-ン')
+                                   .gsub(/ウ゛/, 'ヴ'))
   end
 
-  def self.where(vowel)
-    search(size: 100, from: 1, filter: { term: { vowel: vowel } })
+  class << self
+    def where(vowel)
+      search(size: 100, from: 1, filter: { term: { vowel: vowel } })
+    end
   end
 end
-

@@ -6,7 +6,7 @@
   = submit_tag '韻を踏みたい'
 
 - if @pronunciation.present?
- = "読み方: #{@pronunciation}"
+  = "読み方: #{@pronunciation}"
 br
 - if @vowel.present?
   = "母音化: #{@vowel}"
@@ -14,5 +14,5 @@ br
 - if @results.present?
   = "結果:"
   ul
-  - @results.each do |r|
-    li = "#{r._source.word} (#{r._source.pronunciation})"
+    - @results.each do |r|
+      li = "#{r._source.word} (#{r._source.pronunciation})"
