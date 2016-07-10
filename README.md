@@ -1,12 +1,14 @@
 # rhyby
+
 Japanese rhyme from Ruby
 
-# require
+## require
+
 elasticsearch
 nkf
 mecab
 
-# how to
+## how to
 
 Elasticsearch should be running for rhyby to work.
 
@@ -15,4 +17,12 @@ Elasticsearch should be running for rhyby to work.
 % nkf -w vendor/keywords/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana_utf8.csv
 % bin/rake index:hatena
 % bin/rails s
+```
+
+## Deployment via Docker Compose
+
+```
+$ docker-compose up
+# Create Elasticsearch index
+$ docker exec -it rhyby_rails_1 bin/rake index:hatena
 ```
