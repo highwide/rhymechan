@@ -1,0 +1,5 @@
+log
+tmp
+public/assets/*
+.bundle
+vendor/bundle
