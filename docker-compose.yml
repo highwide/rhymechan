@@ -24,8 +24,9 @@ services:
     build: .
     environment:
       DATABASE_URL: postgresql://rhyby:rhyby@postgres:5432/rhyby?encoding=utf8&pool=5&timeout=5000
-      SECRET_KEY_BASE: 4de2c71c574634ac49d740c73eb31350426fdff3df7a98176057fbb964aca60d2527dbd960f833301f60e393af9672c7a86006edb937ac2f35399e1edf461bce
       ELASTICSEARCH_URL: http://rhyby_elasticsearch_1:9200
+    env_file:
+      - secrets.env
     ports:
       - '3000:3000'
     links:

@@ -26,3 +26,5 @@ $ docker-compose up
 # Create Elasticsearch index
 $ docker exec -it rhyby_rails_1 bin/rake index:hatena
 ```
+
+You still need to set some environment variables. See `secrets.env.example` for further details.
