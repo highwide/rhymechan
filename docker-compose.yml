@@ -1,0 +1,40 @@
+version: "2"
+
+services:
+  datastore:
+    image: busybox
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - elasticsearch-data:/usr/share/elasticsearch/data
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: rhyby
+      POSTGRES_PASSWORD: rhyby
+    volumes_from:
+      - datastore
+
+  elasticsearch:
+    image: elasticsearch
+    volumes_from:
+      - datastore
+
+  rails:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://rhyby:rhyby@postgres:5432/rhyby?encoding=utf8&pool=5&timeout=5000
+      ELASTICSEARCH_URL: http://rhyby_elasticsearch_1:9200
+    env_file:
+      - secrets.env
+    ports:
+      - '3000:3000'
+    links:
+      - postgres
+      - elasticsearch
+
+volumes:
+  postgres-data:
+    driver: local
+  elasticsearch-data:
+    driver: local
