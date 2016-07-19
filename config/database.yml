@@ -82,4 +82,4 @@ production:
   <<: *default
   database: rhymechan_production
   username: rhymechan
-  password: <%= ENV['rhymechan_DATABASE_PASSWORD'] %>
+  password: <%= ENV['RHYMECHAN_DATABASE_PASSWORD'] %>
