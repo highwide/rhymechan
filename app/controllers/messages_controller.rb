@@ -6,6 +6,20 @@ class MessagesController < ApplicationController
   end
 
   def show
+    phrases = @message.content.strip.split(/。|\.|、|,|!|！|\?|？/)
+
+    rhyme = Struct.new(:original, :pronunciation, :vowel, :results)
+
+    @rhymes = phrases.inject([]) do |acc, content|
+      next acc if content.blank?
+      text = Text.new(content)
+      acc << rhyme.new(
+        content,
+        text.pronunciation,
+        vowel = text.vowel,
+        search(vowel)
+      )
+    end
   end
 
   def new
@@ -47,4 +61,18 @@ class MessagesController < ApplicationController
     def message_params
       params.require(:message).permit(:content)
     end
+
+    # @todo Move and make it DRY
+    def search(vowel)
+      length = vowel.length
+      return nil if length < 3
+
+      start = (length >= 10) ? 10 : length
+      # 10文字から3文字まで韻踏めるか検索
+      start.downto(3).map do |n|
+        SearchableWord
+          .where(vowel[(-1 * n)..-1])
+          .response.hits.hits
+      end.flatten.take(5)
+  end
 end
