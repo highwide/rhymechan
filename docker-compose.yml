@@ -10,8 +10,8 @@ services:
   postgres:
     image: postgres
     environment:
-      POSTGRES_USER: rhyby
-      POSTGRES_PASSWORD: rhyby
+      POSTGRES_USER: rhymechan
+      POSTGRES_PASSWORD: rhymechan
     volumes_from:
       - datastore
 
@@ -23,8 +23,8 @@ services:
   rails:
     build: .
     environment:
-      DATABASE_URL: postgresql://rhyby:rhyby@postgres:5432/rhyby?encoding=utf8&pool=5&timeout=5000
-      ELASTICSEARCH_URL: http://rhyby_elasticsearch_1:9200
+      DATABASE_URL: postgresql://rhymechan:rhymechan@postgres:5432/rhymechan?encoding=utf8&pool=5&timeout=5000
+      ELASTICSEARCH_URL: http://rhymechan_elasticsearch_1:9200
     env_file:
       - secrets.env
     ports:

@@ -1,6 +1,6 @@
-# rhyby
+# Rhymechan
 
-Japanese rhyme from Ruby
+Rhymechan was formerly known as Rhyby.
 
 ## require
 
@@ -10,7 +10,7 @@ mecab
 
 ## how to
 
-Elasticsearch should be running for rhyby to work.
+Elasticsearch should be running for rhymechan to work.
 
 ```
 % curl http://d.hatena.ne.jp/images/keyword/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana.csv
@@ -24,7 +24,7 @@ Elasticsearch should be running for rhyby to work.
 ```
 $ docker-compose up
 # Create Elasticsearch index
-$ docker exec -it rhyby_rails_1 bin/rake index:hatena
+$ docker exec -it rhymechan_rails_1 bin/rake index:hatena
 ```
 
 You still need to set some environment variables. See `secrets.env.example` for further details.
