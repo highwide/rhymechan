@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 concern :Vowelizable do
   def vowelize(kana_text)
     simple_vowelize(kana_text)

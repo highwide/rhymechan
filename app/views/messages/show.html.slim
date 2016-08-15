@@ -1,0 +1,21 @@
+p#notice = notice
+
+h1= @message.content
+
+- @rhymes.each do |rhyme|
+  h2= rhyme.phrase
+  - if rhyme.pronunciation.present?
+    = "読み方: #{rhyme.pronunciation}"
+  br
+  - if rhyme.vowel.present?
+    = "母音化: #{rhyme.vowel}"
+  br
+  - if rhyme.results.present?
+    = '結果:'
+    ul
+      - rhyme.results.each do |r|
+        li = "#{r._source.word} (#{r._source.pronunciation})"
+
+= link_to 'Edit', edit_message_path(@message)
+'|
+= link_to 'Back', messages_path

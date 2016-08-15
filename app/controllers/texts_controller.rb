@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class TextsController < ApplicationController
   before_action :set_text, only: [:index]
 

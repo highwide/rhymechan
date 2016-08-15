@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class SearchableWord
   include Elasticsearch::Persistence::Model
   include Vowelizable
