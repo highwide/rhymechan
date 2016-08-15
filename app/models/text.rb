@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Text
   include ActiveModel::Model
   include Vowelizable
@@ -30,20 +28,20 @@ class Text
 
   private
 
-  def parsed_text
-    return @parsed_text if @parsed_text.present?
-    parsed_text = []
-    Natto::MeCab.new
-                .parse(@text)
-                .split
-                .select { |item| item != 'EOS' }
-                .each_slice(2) do |k, v|
-                  parsed_text << { k => v&.split(',') }
-                end
-    @parsed_text = parsed_text
-  end
+    def parsed_text
+      return @parsed_text if @parsed_text.present?
+      parsed_text = []
+      Natto::MeCab.new
+                  .parse(@text)
+                  .split
+                  .select { |item| item != 'EOS' }
+                  .each_slice(2) do |k, v|
+                    parsed_text << { k => v&.split(',') }
+                  end
+      @parsed_text = parsed_text
+    end
 
-  def pronouncable?(text)
-    text =~ /^[\p{hiragana}|\p{katakana}|ー]+$/
-  end
+    def pronouncable?(text)
+      text =~ /^[\p{hiragana}|\p{katakana}|ー]+$/
+    end
 end

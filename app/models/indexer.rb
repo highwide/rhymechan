@@ -1,6 +1,5 @@
-# frozen_string_literal: true
-
 require 'csv'
+
 class Indexer
   attr_accessor :client
 
@@ -22,40 +21,40 @@ class Indexer
 
   private
 
-  def word_list
-    CSV.open(@keywords_file, col_sep: "\t")
-       .select { |line| line[0].present? }
-  end
-
-  def mapping
-    index = SearchableWord::INDEX
-
-    @client.indices.delete index: index if @client.indices.exists? index: index
-
-    settings = SearchableWord.settings.to_hash
-    mappings = SearchableWord.mappings.to_hash
-
-    @client.indices.create index: index, body: {
-      settings: settings,
-      mappings: mappings
-    }
-  end
-
-  def bulk_query(docs)
-    query = { body: [] }
-
-    docs.flatten.each do |doc|
-      header = {
-        index: {
-          _index: doc.class::INDEX,
-          _type: doc.class::TYPE,
-          _id: doc._id,
-        }
-      }
-      query[:body] << header
-      query[:body] << doc.to_h
+    def word_list
+      CSV.open(@keywords_file, col_sep: "\t")
+         .select { |line| line[0].present? }
     end
 
-    query
-  end
+    def mapping
+      index = SearchableWord::INDEX
+
+      @client.indices.delete index: index if @client.indices.exists? index: index
+
+      settings = SearchableWord.settings.to_hash
+      mappings = SearchableWord.mappings.to_hash
+
+      @client.indices.create index: index, body: {
+        settings: settings,
+        mappings: mappings
+      }
+    end
+
+    def bulk_query(docs)
+      query = { body: [] }
+
+      docs.flatten.each do |doc|
+        header = {
+          index: {
+            _index: doc.class::INDEX,
+            _type: doc.class::TYPE,
+            _id: doc._id
+          }
+        }
+        query[:body] << header
+        query[:body] << doc.to_h
+      end
+
+      query
+    end
 end

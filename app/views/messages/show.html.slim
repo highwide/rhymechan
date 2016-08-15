@@ -3,9 +3,7 @@ p#notice = notice
 h1= @message.content
 
 - @rhymes.each do |rhyme|
-  - p rhyme
-  - p rhyme.original
-  h2= rhyme.original
+  h2= rhyme.phrase
   - if rhyme.pronunciation.present?
     = "読み方: #{rhyme.pronunciation}"
   br
