@@ -22,7 +22,10 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'tapp', git: 'https://github.com/5t111111/tapp.git', branch: 'add-decoration-feature'
 end
 
 group :development do
