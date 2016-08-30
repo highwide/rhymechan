@@ -20,8 +20,8 @@ class RhymeTest < ActiveSupport::TestCase
   test 'should have results converted to rhyme' do
     assert_instance_of Array, @rhyme.results
     assert_equal 10, @rhyme.results.size
-    assert_equal @rhyme.results[0]._source.word, '桟原将司'
-    assert_equal @rhyme.results[1]._source.word, 'ジャミーラ・高橋'
+    assert_equal 'キーパーチャージ', @rhyme.results[0]._source.word
+    assert_equal 'ジャミーラ・高橋', @rhyme.results[1]._source.word
   end
 
   test 'should have empty result when phraze is shorter than 3' do

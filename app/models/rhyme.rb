@@ -25,6 +25,6 @@ class Rhyme
       # 10文字から3文字まで韻踏めるか検索
       (length >= 10 ? 10 : length).downto(3).map do |n|
         SearchableWord.where(vowel[-n..-1]).response.hits.hits
-      end.flatten.take(@number)
+      end.flatten.take(@number).sort_by { |e| [e._score, e._source.word] }
     end
 end
