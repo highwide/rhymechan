@@ -3,7 +3,7 @@ class Rhyme
   delegate :pronunciation, :vowel, to: :text
 
   # number に結果の個数を指定する
-  def initialize(phrase, number: 10)
+  def initialize(phrase, number: 5)
     @phrase = phrase
     @number = number
   end

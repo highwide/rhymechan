@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   end
 
   def show
-    phrases = @message.content.strip.split(/。|\.|、|,|!|！|\?|？/)
+    phrases = @message.split_content_into_phrases
 
     @rhymes = phrases.inject([]) do |acc, phrase|
       next acc if phrase.blank?

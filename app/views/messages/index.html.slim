@@ -1,21 +1,37 @@
-h1 Listing messages
 
-table
-  thead
-    tr
-      th Content
-      th
-      th
-      th
+/ p.type
+/   | BY 5t111111
 
-  tbody
-    - @messages.each do |message|
-      tr
-        td = message.content
-        td = link_to 'Show', message
-        td = link_to 'Edit', edit_message_path(message)
-        td = link_to 'Destroy', message, data: { confirm: 'Are you sure?' }, method: :delete
+- @messages.each do |message|
+  section
+    p.type
+      = fa_icon 'heart', text: 'yucao24hours', right: true
+    .message__original
+      h3 = message.content
+    .message__candidates
+      = render 'candidates', message: message, rhymes: message.make_rhymes_from_content
+      / td = link_to 'Show', message
+      / td = link_to 'Edit', edit_message_path(message)
+      / td = link_to 'Destroy', message, data: { confirm: 'Are you sure?' }, method: :delete  
 
+/ h1 Listing messages
+/ 
+/ table
+/   thead
+/     tr
+/       th Content
+/       th
+/       th
+/       th
+/ 
+/   tbody
+/     - @messages.each do |message|
+/       tr
+/         td = message.content
+/         td = link_to 'Show', message
+/         td = link_to 'Edit', edit_message_path(message)
+/         td = link_to 'Destroy', message, data: { confirm: 'Are you sure?' }, method: :delete
+/ 
 br
 
 = link_to 'New Message', new_message_path

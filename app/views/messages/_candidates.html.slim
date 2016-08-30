@@ -1,0 +1,19 @@
+- rhymes.each do |rhyme|
+  .rhyme__phrase
+     = fa_icon 'comment', text: rhyme.phrase
+     - if rhyme.pronunciation.present?
+       span.rhyme__phrase-pronunciation
+         = "(pronunciation: #{rhyme.pronunciation}"
+     - if rhyme.vowel.present?
+       span.rhyme__phrase-vowel
+         = "vowel: #{rhyme.vowel})"
+     |  は
+  .candidate__results
+    - if rhyme.results.present?
+      table
+        - rhyme.results.each do |r|
+          tr
+            td = r._source.word
+            td = r._source.pronunciation
+  .candidate__text
+    b と踏める
