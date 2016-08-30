@@ -139,6 +139,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    normalize-rails (4.1.1)
     pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.4)
@@ -248,6 +249,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   natto
   neat
+  normalize-rails
   pg (~> 0.18)
   pry-byebug
   pry-rails
