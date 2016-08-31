@@ -1,16 +1,15 @@
 .message {
   @include outer-container;
 
-  margin: 100px 20px 0;
+  margin: 100px auto 0;
+  padding: 0 1rem;
 
   .message__from {
     border-bottom: 1px solid;
     display: inline-block;
-    font-size: .7em;
-    font-weight: 800;
-    margin-bottom: 2em;
-    padding: .3em 0;
-    text-align: left;
+    font-size: .8rem;
+    font-weight: 400;
+    padding: .2rem 0;
     text-transform: uppercase;
   }
 
@@ -23,9 +22,14 @@
     @include shift(.2);
   }
 
+  .message__links {
+    // font-size: .9rem;
+    margin-right: 1rem;
+    text-align: right;
+  }
+
   .rhyme__phrase {
     font-weight: 600;
-    margin-top: 16px;
   }
 
   .rhyme__phrase-pronunciation,
@@ -36,10 +40,14 @@
 
   .candidate__results {
     font-size: .8rem;
+
+    .candidate__results__table {
+      margin: 1rem 0;
+    }
   }
 
   .candidate__fumeru {
-    margin-top: 16px;
+    margin: 1rem 0;
     text-align: right;
   }
 }

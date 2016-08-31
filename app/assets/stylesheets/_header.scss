@@ -3,11 +3,10 @@ header {
   $header-background-bottom: adjust-hue($header-background-top, -60);
   $gradient-angle: 10deg;
 
-  background: linear-gradient(rgba(255,255,255,0) 50%, rgba(255,255,255,1)), image-url('header-bg.png') center center / cover no-repeat;
+  background: linear-gradient($transparency 50%, $white), image-url('header-bg.png') center center / cover no-repeat;
   background-size: cover;
   height: 500px;
-  padding-bottom: 60px;
-  padding-top: 350px;
+  padding: 350px 1rem 60px;
   text-align: center;
 }
 

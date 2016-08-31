@@ -1,7 +1,7 @@
 body {
 
-  $sans-serif: 'Questrial', sans-serif;
-  $serif: 'Sanchez', serif;
+  $sans-serif: 'Questrial', 'Hiragino Kaku Gothic ProN', 'Hiragino Kaku Gothic Pro', '游ゴシック', YuGothic, 'ＭＳ ゴシック', sans-serif;
+  $serif: 'Sanchez', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', '游明朝', YuMincho, 'ＭＳ 明朝', serif;
   $base-line-height: 1.5rem;
   $base-spacing: 1.5rem;
 
@@ -31,8 +31,7 @@ body {
     font-family: $serif;
     font-size: 1.8rem;
     font-weight: 700;
-    line-height: 2.8rem;
-    margin-bottom: .4rem;
+    line-height: 2.4rem;
   }
 
   h3 {

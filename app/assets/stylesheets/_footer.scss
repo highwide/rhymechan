@@ -1,0 +1,11 @@
+footer {
+  height: 100px;
+  margin-top: 20px;
+  padding: 40px 1rem;
+
+  .copyright {
+    font-size: .8rem;
+    text-align: center;
+    color: $light-font-color;
+  }
+}

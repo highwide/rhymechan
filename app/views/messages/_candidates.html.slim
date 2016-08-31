@@ -10,7 +10,7 @@
      |  は
   .candidate__results
     - if rhyme.results.present?
-      table
+      table.candidate__results__table
         - rhyme.results.each do |r|
           tr
             td = r._source.word
