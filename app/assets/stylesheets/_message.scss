@@ -1,0 +1,53 @@
+.message {
+  @include outer-container;
+
+  margin: 100px auto 0;
+  padding: 0 1rem;
+
+  .message__from {
+    border-bottom: 1px solid;
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 400;
+    padding: .2rem 0;
+    text-transform: uppercase;
+  }
+
+  .message__original {
+    @include span-columns(12);
+  }
+
+  .message__candidates {
+    @include span-columns(11.6);
+    @include shift(.2);
+  }
+
+  .message__links {
+    // font-size: .9rem;
+    margin-right: 1rem;
+    text-align: right;
+  }
+
+  .rhyme__phrase {
+    font-weight: 600;
+  }
+
+  .rhyme__phrase-pronunciation,
+  .rhyme__phrase-vowel {
+    font-size: .8rem;
+    margin-left: .2rem;
+  }
+
+  .candidate__results {
+    font-size: .8rem;
+
+    .candidate__results__table {
+      margin: 1rem 0;
+    }
+  }
+
+  .candidate__fumeru {
+    margin: 1rem 0;
+    text-align: right;
+  }
+}

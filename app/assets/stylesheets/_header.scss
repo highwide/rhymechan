@@ -1,0 +1,20 @@
+header {
+  $header-background-top: darken($main-color, 20);
+  $header-background-bottom: adjust-hue($header-background-top, -60);
+  $gradient-angle: 10deg;
+
+  background: linear-gradient($transparency 50%, $white), image-url('header-bg.png') center center / cover no-repeat;
+  background-size: cover;
+  height: 500px;
+  padding: 350px 1rem 60px;
+  text-align: center;
+}
+
+.header__title {
+  height: 100px;
+}
+
+.header__description {
+  color: $light-font-color;
+  margin-top: 24px;
+}
