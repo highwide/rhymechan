@@ -1,0 +1,45 @@
+.message {
+  @include outer-container;
+
+  margin: 100px 20px 0;
+
+  .message__from {
+    border-bottom: 1px solid;
+    display: inline-block;
+    font-size: .7em;
+    font-weight: 800;
+    margin-bottom: 2em;
+    padding: .3em 0;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .message__original {
+    @include span-columns(12);
+  }
+
+  .message__candidates {
+    @include span-columns(11.6);
+    @include shift(.2);
+  }
+
+  .rhyme__phrase {
+    font-weight: 600;
+    margin-top: 16px;
+  }
+
+  .rhyme__phrase-pronunciation,
+  .rhyme__phrase-vowel {
+    font-size: .8rem;
+    margin-left: .2rem;
+  }
+
+  .candidate__results {
+    font-size: .8rem;
+  }
+
+  .candidate__fumeru {
+    margin-top: 16px;
+    text-align: right;
+  }
+}

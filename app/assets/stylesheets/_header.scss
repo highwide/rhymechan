@@ -3,11 +3,8 @@ header {
   $header-background-bottom: adjust-hue($header-background-top, -60);
   $gradient-angle: 10deg;
 
-  // @include background(image-url('header-bg.png'), linear-gradient($gradient-angle, $header-background-bottom, $header-background-top), no-repeat $header-background-top scroll);
-  background-size: cover;
   background: linear-gradient(rgba(255,255,255,0) 50%, rgba(255,255,255,1)), image-url('header-bg.png') center center / cover no-repeat;
-
-  // color: $main-color;
+  background-size: cover;
   height: 500px;
   padding-bottom: 60px;
   padding-top: 350px;
@@ -19,6 +16,6 @@ header {
 }
 
 .header__description {
-  color: #666;
-  margin-top: 20px;
+  color: $light-font-color;
+  margin-top: 24px;
 }
