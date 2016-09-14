@@ -1,7 +1,7 @@
 - @messages.each do |message|
   .message
     p.message__from
-      = fa_icon 'heart', text: 'yucao24hours', right: true
+      = fa_icon 'heart', text: message.created_by, right: true
     .message__original
       h2 = message.content
     .message__candidates

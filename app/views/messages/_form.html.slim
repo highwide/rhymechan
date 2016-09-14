@@ -6,7 +6,8 @@
         - @message.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :content
-    = f.text_field :content
+  - Message.attribute_names.reject { |e| e.in?(%w(id created_at updated_at)) }.map(&:to_sym).each do |a|
+    .field
+      = f.label a
+      = f.text_field a
   .actions = f.submit
