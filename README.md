@@ -8,6 +8,7 @@ Rhymechan helps u 2 konvert ill messagez in2 da dope rhyme and flow with vibez o
 
 - Elasticsearch
 - mecab
+- mecab-ipadic
 - nkf
 
 ## Usage
