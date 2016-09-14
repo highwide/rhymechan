@@ -24,3 +24,7 @@
 
 # Docker related files
 secrets.env
+
+# webpack related files
+/client/node_modules
+/app/assets/javascripts/webpack
