@@ -1,28 +1,49 @@
 # Rhymechan
 
-Rhymechan was formerly known as Rhyby.
+_Formerly known as Rhyby._
 
-## require
+Rhymechan helps u 2 konvert ill messagez in2 da dope rhyme and flow with vibez of da new $hit.
 
-elasticsearch
-nkf
-mecab
+## Prerequisite
 
-## how to
+- Elasticsearch
+- mecab
+- nkf
 
-Elasticsearch should be running for rhymechan to work.
+## Usage
+
+Elasticsearch must be running for Rhymechan to work.
+
+Get Hatena keyword list.
 
 ```
-% curl http://d.hatena.ne.jp/images/keyword/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana.csv
-% nkf -w vendor/keywords/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana_utf8.csv
-% bin/rake index:hatena
-% bin/rails s
+$ curl http://d.hatena.ne.jp/images/keyword/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana.csv
+```
+
+Convert the encoding of the list to UTF-8.
+
+
+```
+$ nkf -w vendor/keywords/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana_utf8.csv
+```
+
+Then create Elasticsearch index (it takes a while) .
+
+```
+$ bin/rails index:hatena
+```
+
+Now you are all set. Let's start Rails server.
+
+```
+$ bin/rails s
 ```
 
 ## Deployment via Docker Compose
 
 ```
 $ docker-compose up
+
 # Create Elasticsearch index
 $ docker exec -it rhymechan_rails_1 bin/rake index:hatena
 ```
