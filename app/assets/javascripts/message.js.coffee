@@ -1,3 +1,3 @@
 $(document).on 'turbolinks:load', ->
-  $('.rhyme__phrase').on 'click', ->
-    $(@).next().toggle()
+  $('.rhyme').on 'click', ->
+    $(@).find('.candidate__results').toggleClass('candidate__results--collapsed')
