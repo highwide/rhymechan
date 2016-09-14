@@ -27,4 +27,5 @@ secrets.env
 
 # webpack related files
 /client/node_modules
+/client/npm-debug.log
 /app/assets/javascripts/webpack

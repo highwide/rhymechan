@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack-watch": "node_modules/webpack/bin/webpack.js -w",
+    "webpack-build": "node_modules/webpack/bin/webpack.js -p"
   },
   "devDependencies": {
     "babel-loader": "^6.2.5",
