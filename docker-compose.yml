@@ -2,13 +2,14 @@ version: "2"
 
 services:
   datastore:
-    image: busybox
+    image: busybox:latest
+    entrypoint: /bin/bash
     volumes:
       - postgres-data:/var/lib/postgresql/data
       - elasticsearch-data:/usr/share/elasticsearch/data
 
   postgres:
-    image: postgres
+    image: postgres:9.5.4
     environment:
       POSTGRES_USER: rhymechan
       POSTGRES_PASSWORD: rhymechan
@@ -16,7 +17,7 @@ services:
       - datastore
 
   elasticsearch:
-    image: elasticsearch
+    image: elasticsearch:2.4.0
     volumes_from:
       - datastore
 
