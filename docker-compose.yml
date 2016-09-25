@@ -2,13 +2,13 @@ version: "2"
 
 services:
   datastore:
-    image: busybox
+    image: busybox:latest
     volumes:
       - postgres-data:/var/lib/postgresql/data
       - elasticsearch-data:/usr/share/elasticsearch/data
 
   postgres:
-    image: postgres
+    image: postgres:9.5.4
     environment:
       POSTGRES_USER: rhymechan
       POSTGRES_PASSWORD: rhymechan
@@ -16,7 +16,7 @@ services:
       - datastore
 
   elasticsearch:
-    image: elasticsearch
+    image: elasticsearch:2.4.0
     volumes_from:
       - datastore
 
@@ -24,7 +24,7 @@ services:
     build: .
     environment:
       DATABASE_URL: postgresql://rhymechan:rhymechan@postgres:5432/rhymechan?encoding=utf8&pool=5&timeout=5000
-      ELASTICSEARCH_URL: http://rhymechan_elasticsearch_1:9200
+      ELASTICSEARCH_URL: http://elasticsearch:9200
     env_file:
       - secrets.env
     ports:

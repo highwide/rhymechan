@@ -45,8 +45,11 @@ $ bin/rails s
 ```
 $ docker-compose up
 
+# Run migration
+$ docker-compose run rails bin/rails db:migrate
+
 # Create Elasticsearch index
-$ docker exec -it rhymechan_rails_1 bin/rake index:hatena
+$ docker-compose run rails bin/rails index:hatena
 ```
 
 You still need to set some environment variables. See `secrets.env.example` for further details.
