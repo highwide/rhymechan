@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
 
     if @message.save
-      redirect_to @message, notice: 'Message was successfully created.'
+      redirect_to messages_url, notice: 'Message was successfully created.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
 
   def update
     if @message.update(message_params)
-      redirect_to @message, notice: 'Message was successfully updated.'
+      redirect_to messages_url, notice: 'Message was successfully updated.'
     else
       render :edit
     end
