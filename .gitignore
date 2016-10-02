@@ -24,3 +24,6 @@
 
 # Docker related files
 secrets.env
+
+# Ignore uploaded files
+/public/uploads
