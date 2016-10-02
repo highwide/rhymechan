@@ -16,6 +16,9 @@ h1= @message.content
       - rhyme.results.each do |r|
         li = "#{r._source.word} (#{r._source.pronunciation})"
 
+- if @message.icon
+ = image_tag(@message.icon_url)
+br
 = link_to 'Edit', edit_message_path(@message)
 '|
 = link_to 'Back', messages_path
