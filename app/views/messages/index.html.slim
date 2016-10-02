@@ -10,6 +10,6 @@
       = render 'candidates', message: message, rhymes: message.make_rhymes_from_content
     .message__links
       = link_to 'Edit This Message', edit_message_path(message)
-      
+
 br
 = link_to 'Create New Message', new_message_path
