@@ -1,6 +1,7 @@
 - @messages.each do |message|
   .message
     p.message__from
+      = image_tag(message.icon_url) if message.icon_url
       = fa_icon 'heart', text: message.created_by, right: true
     .message__original
       h2 = message.content
