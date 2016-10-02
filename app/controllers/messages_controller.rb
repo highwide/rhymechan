@@ -5,15 +5,6 @@ class MessagesController < ApplicationController
     @messages = Message.all
   end
 
-  def show
-    phrases = @message.split_content_into_phrases
-
-    @rhymes = phrases.inject([]) do |acc, phrase|
-      next acc if phrase.blank?
-      acc << Rhyme.new(phrase)
-    end
-  end
-
   def new
     @message = Message.new
   end
