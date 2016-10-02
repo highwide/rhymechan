@@ -1,9 +1,10 @@
 - @messages.each do |message|
   .message
     p.message__from
-      = image_tag(message.icon_url) if message.icon_url
       = fa_icon 'heart', text: message.created_by, right: true
     .message__original
+      .icon
+        = image_tag(message.icon_url) if message.icon_url
       h2 = message.content
     .message__candidates
       = render 'candidates', message: message, rhymes: message.make_rhymes_from_content

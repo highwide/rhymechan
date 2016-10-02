@@ -15,6 +15,16 @@
 
   .message__original {
     @include span-columns(12);
+    .icon {
+      max-width: 100px;
+      display: inline-block;
+      img {
+        width: 100%;
+      }
+    }
+    h2 {
+      display: inline-block;
+    }
   }
 
   .message__candidates {
