@@ -6,6 +6,7 @@ gem 'rails', '~> 5.0.0'
 
 gem 'bitters'
 gem 'bourbon', '~> 4.2'
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'elasticsearch-model'
 gem 'elasticsearch-persistence', require: 'elasticsearch/persistence/model'

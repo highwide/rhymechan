@@ -51,6 +51,6 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(*%i(content created_by))
+      params.require(:message).permit(*%i(content created_by icon))
     end
 end
