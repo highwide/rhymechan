@@ -1,39 +1,46 @@
 .message {
   @include outer-container;
 
-  margin: 100px auto 0;
+  margin: 2rem auto 0;
   padding: 0 1rem;
 
-  .message__from {
-    border-bottom: 1px solid;
-    display: inline-block;
-    font-size: .8rem;
-    font-weight: 400;
-    padding: .2rem 0;
-    text-transform: uppercase;
+  .message__avatar {
+    @include span-columns(2);
+    margin-right: 1%;
   }
 
-  .message__original {
-    @include span-columns(12);
-    .icon {
-      max-width: 100px;
-      display: inline-block;
-      img {
-        width: 100%;
+  .message__container {
+    @include span-columns(9.8);
+
+    .message__from {
+      font-size: .8rem;
+      font-weight: 400;
+      margin-top: .6rem;
+      padding: .2rem;
+      text-transform: uppercase;
+
+      span {
+        border-bottom: 1px solid;
       }
     }
-    h2 {
-      display: inline-block;
+
+    .message__original {
+      margin-top: .6rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   }
 
   .message__candidates {
-    @include span-columns(11.6);
-    @include shift(.2);
+    @include span-columns(12);
+
+    margin-top: 1.5rem;
   }
 
   .message__links {
-    // font-size: .9rem;
+    @include span-columns(12);
     margin-right: 1rem;
     text-align: right;
   }
@@ -57,18 +64,13 @@
   }
 
   .candidate__results--collapsed {
-    height: 6rem;
+    height: 2rem;
     margin-top: 1rem;
-    opacity: .5;
+    opacity: .9;
     overflow: hidden;
   }
 
   .candidate__results--collapsed::before {
-    content: '... Click here to expand';
-  }
-
-  .candidate__fumeru {
-    margin: 1rem 0;
-    text-align: right;
+    content: '↓ ... Click to expand/collapse';
   }
 }
