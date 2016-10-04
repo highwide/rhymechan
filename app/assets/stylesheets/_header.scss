@@ -6,6 +6,7 @@ header {
   background: linear-gradient($transparency 50%, $white), image-url('header-bg.png') center center / cover no-repeat;
   background-size: cover;
   height: 500px;
+  margin-bottom: 160px;
   padding: 350px 1rem 60px;
   text-align: center;
 }
