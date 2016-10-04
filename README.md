@@ -53,3 +53,16 @@ $ docker-compose run rails bin/rails index:hatena
 ```
 
 You still need to set some environment variables. See `secrets.env.example` for further details.
+
+## Using S3 as the CarrierWave backend storage instead of local filesystem
+
+Set the below environment variables:
+
+```
+AWS_USE_S3=false # true if you want to use S3, otherwise use local filesystem
+AWS_ACCESS_KEY_ID=xxxxxxxxxx
+AWS_SECRET_ACCESS_KEY=xxxxxxxxxx
+AWS_REGION=xxxxxxxxxx
+```
+
+Uploaded files are stored in the buckets called `rhymechan-{environment}` (e.g. `rhymechan-production`) .
