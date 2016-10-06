@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-ICON_PATH = Rails.root.join(*%w(app assets images messages))
+ICON_PATH = Rails.root.join(*%w(db seeds images))
 messages = [
   {
     created_by: 'rhymechan',
