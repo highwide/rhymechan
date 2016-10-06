@@ -10,8 +10,15 @@ messages = [
   {
     created_by: 'rhymechan',
     content: '感謝しよう、今ここでの出会い',
-    icon: File.open(ICON_PATH.join('sample.png'))
+    icon: ICON_PATH.join('sample.png')
   }
 ]
 
-Message.first_or_create(messages)
+messages.each do |message|
+  m = Message.find_or_initialize_by(created_by: message[:created_by], content: message[:content])
+  next unless m.new_record?
+  open(message[:icon]) { |f|
+    m.icon = f
+    m.save!
+  }
+end
