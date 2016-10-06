@@ -1,8 +1,5 @@
 .message {
-  @include outer-container;
-
   margin: 2rem auto 0;
-  padding: 0 1rem;
 
   .message__avatar {
     @include span-columns(2);
