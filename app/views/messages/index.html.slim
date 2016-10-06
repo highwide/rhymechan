@@ -1,19 +1,20 @@
-p#notice = notice
+section
+  = button_to 'Create New Message', new_message_path, method: :get
 
-- @messages.each do |message|
-  .message
-    .message__avatar
-      = image_tag(message.icon_url) if message.icon_url
-    .message__container
-      .message__from
-        span
-          = fa_icon 'heart', text: message.created_by, right: true
-      .message__original
-        h2 = message.content
-    .message__candidates
-      = render 'candidates', message: message, rhymes: message.make_rhymes_from_content
-    .message__links
-      = link_to 'Edit This Message', edit_message_path(message)
+section
+  p#notice = notice
 
-br
-= link_to 'Create New Message', new_message_path
+  - @messages.each do |message|
+    .message
+      .message__avatar
+        = image_tag(message.icon_url) if message.icon_url
+      .message__container
+        .message__from
+          span
+            = fa_icon 'heart', text: message.created_by, right: true
+        .message__original
+          h2 = message.content
+      .message__candidates
+        = render 'candidates', message: message, rhymes: message.make_rhymes_from_content
+      .message__links
+        = link_to 'Edit This Message', edit_message_path(message)
