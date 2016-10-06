@@ -7,21 +7,40 @@
   }
 
   .message__container {
-    @include span-columns(9.8);
+    padding: .2rem;
 
-    .message__from {
-      font-size: .8rem;
-      font-weight: 400;
+    @include media($medium-screen) {
+      @include span-columns(9.8);
       margin-top: .6rem;
-      padding: .2rem;
-      text-transform: uppercase;
+    }
 
-      span {
-        border-bottom: 1px solid;
+    .message__header {
+      .message__from {
+        @include media($medium-screen) {
+          @include span-columns(11);
+          margin-top: .6rem;
+        }
+
+        font-size: .8rem;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        span {
+          border-bottom: 1px solid;
+        }
+      }
+
+      .message__links {
+        @include media($medium-screen) {
+          @include span-columns(1);
+          text-align: right;
+        }
       }
     }
 
     .message__original {
+      @include span-columns(12);
+
       margin-top: .6rem;
 
       h2 {
@@ -34,12 +53,6 @@
     @include span-columns(12);
 
     margin-top: 1.5rem;
-  }
-
-  .message__links {
-    @include span-columns(12);
-    margin-right: 1rem;
-    text-align: right;
   }
 
   .rhyme__phrase {
