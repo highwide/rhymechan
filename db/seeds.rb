@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ICON_PATH = Rails.root.join(*%w(db seeds images))
+messages = [
+  {
+    created_by: 'rhymechan',
+    content: '感謝しよう、今ここでの出会い',
+    icon: ICON_PATH.join('sample.png')
+  }
+]
+
+messages.each do |message|
+  m = Message.find_or_initialize_by(created_by: message[:created_by], content: message[:content])
+  next unless m.new_record?
+  open(message[:icon]) { |f|
+    m.icon = f
+    m.save!
+  }
+end

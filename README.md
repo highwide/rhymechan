@@ -34,6 +34,14 @@ Then create Elasticsearch index (it takes a while) .
 $ bin/rails index:hatena
 ```
 
+Setup database.
+
+```
+$ bin/rails db:create
+$ bin/rails db:migrate
+$ bin/rails db:seed
+```
+
 Now you are all set. Let's start Rails server.
 
 ```
@@ -47,6 +55,7 @@ $ docker-compose up
 
 # Run migration
 $ docker-compose run rails bin/rails db:migrate
+$ docker-compose run rails bin/rails db:seed
 
 # Create Elasticsearch index
 $ docker-compose run rails bin/rails index:hatena
