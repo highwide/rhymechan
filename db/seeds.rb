@@ -5,12 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-ICON_PATH = %W(#{Rails.root} app assets images messages).join(File::SEPARATOR)
+ICON_PATH = Rails.root.join(*%w(app assets images messages))
 messages = [
   {
     created_by: 'rhymechan',
     content: '感謝しよう、今ここでの出会い',
-    icon: File.open(%W(#{ICON_PATH} sample.png).join(File::SEPARATOR))
+    icon: File.open(ICON_PATH.join('sample.png'))
   }
 ]
 
