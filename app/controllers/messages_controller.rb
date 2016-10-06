@@ -1,17 +1,8 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:edit, :update, :destroy]
 
   def index
     @messages = Message.order(updated_at: :desc)
-  end
-
-  def show
-    phrases = @message.split_content_into_phrases
-
-    @rhymes = phrases.inject([]) do |acc, phrase|
-      next acc if phrase.blank?
-      acc << Rhyme.new(phrase)
-    end
   end
 
   def new
@@ -25,7 +16,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
 
     if @message.save
-      redirect_to @message, notice: 'Message was successfully created.'
+      redirect_to messages_url, notice: 'Message was successfully created.'
     else
       render :new
     end
@@ -33,7 +24,7 @@ class MessagesController < ApplicationController
 
   def update
     if @message.update(message_params)
-      redirect_to @message, notice: 'Message was successfully updated.'
+      redirect_to messages_url, notice: 'Message was successfully updated.'
     else
       render :edit
     end
