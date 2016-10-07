@@ -1,6 +1,3 @@
-section.video-wrapper
-  iframe src="https://www.youtube.com/embed/e-4zdfrod8M" frameborder="0" allowfullscreen="true"
-
 section
   = button_to 'Create New Message', new_message_path, method: :get
 
@@ -22,3 +19,6 @@ section
           h2 = message.content
       .message__candidates
         = render 'candidates', message: message, rhymes: message.make_rhymes_from_content
+
+section.video-wrapper
+  iframe src="https://www.youtube.com/embed/e-4zdfrod8M" frameborder="0" allowfullscreen="true"
