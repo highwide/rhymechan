@@ -1,15 +1,16 @@
 section
   = button_to 'Create New Message', new_message_path, method: :get
 
-section
+section.flash
   p#notice = notice
 
+section.messages
   - @messages.each do |message|
-    .message
+    .message(data-id=message.id)
       .message__avatar
         = image_tag(message.icon_url) if message.icon_url
-      .message__container
-        .message__header
+      .message__header
+        .message__header-additional-data
           .message__from
             span
               = fa_icon 'heart', text: message.created_by, right: true
@@ -18,7 +19,64 @@ section
         .message__original
           h2 = message.content
       .message__candidates
-        = render 'candidates', message: message, rhymes: message.make_rhymes_from_content
 
 section.video-wrapper
   iframe src="https://www.youtube.com/embed/e-4zdfrod8M" frameborder="0" allowfullscreen="true"
+
+javascript:
+  $(document).on('turbolinks:load', function() {
+    $('.messages').children().each(function() {    
+      var id = $(this).data('id');
+      console.log(id);
+      
+      var jqXHR = $.ajax({
+        type: 'GET',
+        url: '/messages/' + id + '.json'
+      });
+      
+      jqXHR.done(function(response) {
+        var rhymes = response.rhymes;
+        var messageCandidates = $(this).find('.message__candidates');
+        
+        var i = 0;
+        
+        while (i < rhymes.length) {
+          var pronunciation = $('<span>').addClass('rhyme__phrase-pronunciation').html('(pronunciation: ' + rhymes[i].text.pronunciation);
+          var vowel = $('<span>').addClass('rhyme__phrase-vowel').html(' vowel: ' + rhymes[i].text.vowel + ')');
+          var rhymePhrase = $('<div>').addClass('rhyme__phrase').html('<i class="fa fa-comment"></i> ' + rhymes[i].phrase);
+          var rhyme = $('<div>').addClass('rhyme');
+          rhymePhrase.append(pronunciation);
+          rhymePhrase.append(vowel);
+          rhymePhrase.append(' は');
+          rhyme.append(rhymePhrase);
+          
+          var candidateResultsTable = $('<table>').addClass('candidate__results__table')
+          var candidateResults = $('<div>').addClass('candidate__results candidate__results--collapsed')
+          
+          var j = 0;
+          
+          while (j < rhymes[i].results.length) {
+            console.log(rhymes[i].results[j])
+            var tr = $('<tr>');
+            var tdWord = $('<td>').html(rhymes[i].results[j]._source.word);
+            var tdPronunciation = $('<td>').html(rhymes[i].results[j]._source.pronunciation);
+            tr.append(tdWord);
+            tr.append(tdPronunciation);
+            candidateResultsTable.append(tr);
+            j++;
+          }
+          
+          candidateResults.append(candidateResultsTable);
+          rhyme.append(candidateResults);
+          rhyme.append($('<p>').addClass('candidate__results__fumeru').html($('<b>').html('と踏める')))
+          
+          rhyme.on('click', function() {
+            $(this).find('.candidate__results').toggleClass('candidate__results--collapsed candidate__results--expanded');
+          });
+          
+          messageCandidates.append(rhyme);
+          i++;
+        }
+      }.bind(this));
+    });
+  });

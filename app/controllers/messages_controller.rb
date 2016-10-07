@@ -1,8 +1,11 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   def index
     @messages = Message.order(updated_at: :desc)
+  end
+
+  def show
   end
 
   def new

@@ -1,19 +1,16 @@
 class Rhyme
-  attr_reader :phrase, :number
+  attr_reader :phrase, :number, :results
   delegate :pronunciation, :vowel, to: :text
 
   # number に結果の個数を指定する
   def initialize(phrase, number: 10)
     @phrase = phrase
     @number = number
+    @results = convert_phrases_into_rhymes
   end
 
   def text
     @text ||= Text.new(phrase)
-  end
-
-  def results
-    @results ||= convert_phrases_into_rhymes
   end
 
   private
