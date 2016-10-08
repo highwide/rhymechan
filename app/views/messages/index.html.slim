@@ -27,7 +27,6 @@ javascript:
   $(document).on('turbolinks:load', function() {
     $('.messages').children().each(function() {    
       var id = $(this).data('id');
-      console.log(id);
       
       var jqXHR = $.ajax({
         type: 'GET',
@@ -56,7 +55,6 @@ javascript:
           var j = 0;
           
           while (j < rhymes[i].results.length) {
-            console.log(rhymes[i].results[j])
             var tr = $('<tr>');
             var tdWord = $('<td>').html(rhymes[i].results[j]._source.word);
             var tdPronunciation = $('<td>').html(rhymes[i].results[j]._source.pronunciation);
