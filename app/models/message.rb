@@ -10,6 +10,8 @@ class Message < ApplicationRecord
     end
   end
 
+  alias_method :rhymes, :make_rhymes_from_content
+
   def split_content_into_phrases
     content.strip.split(/。|\.|、|,|!|！|\?|？/).map(&:strip)
   end
