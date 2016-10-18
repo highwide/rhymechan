@@ -18,14 +18,7 @@ Elasticsearch must be running for Rhymechan to work.
 Get Hatena keyword list.
 
 ```
-$ curl http://d.hatena.ne.jp/images/keyword/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana.csv
-```
-
-Convert the encoding of the list to UTF-8.
-
-
-```
-$ nkf -w vendor/keywords/keywordlist_furigana.csv > vendor/keywords/keywordlist_furigana_utf8.csv
+$ bin/rails index:get_keywords
 ```
 
 Then create Elasticsearch index (it takes a while) .
