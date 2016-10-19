@@ -14,7 +14,7 @@ namespace :index do
   end
 
   desc 'elasticsearchにはてなキーワードをつっこむ'
-  task hatena: :environment do
+  task create: :environment do
     keywords_file = Rails.root.join(
       *%w(vendor keywords keywordlist_furigana_utf8.csv)
     ).to_s
