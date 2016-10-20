@@ -95,7 +95,7 @@ messages = [
   {
     created_by: 'shokola',
     content: 'ウッチー、ハッピー、みんなスキッ！',
-    icon: ICON_PATH.join('sample.png')
+    icon: ICON_PATH.join('shokola.png')
   },
   {
     created_by: 'yucao24hours - yochiyochirb organizer',
