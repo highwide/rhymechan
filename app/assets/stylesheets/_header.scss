@@ -5,14 +5,22 @@ header {
 
   background: linear-gradient($transparency 50%, $white), image-url('header-bg.png') center center / cover no-repeat;
   background-size: cover;
-  height: 500px;
-  margin-bottom: 80px;
-  padding: 350px 1rem 60px;
+  height: 400px;
+  margin-bottom: 100px;
+  padding: 300px 1rem 60px;
   text-align: center;
+  @include media($medium-screen) {
+    height: 500px;
+    padding: 350px 1rem 60px;
+    margin-bottom: 80px;
+  }
 }
 
 .header__title {
-  height: 100px;
+  height: 80px;
+  @include media($medium-screen) {
+    height: 100px;
+  }
 }
 
 .header__description {
