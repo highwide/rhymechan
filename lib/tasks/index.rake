@@ -8,7 +8,7 @@ namespace :index do
         *%w(vendor keywords keywordlist_furigana_utf8.csv)
       ).to_s
       open(keywords_file, 'w') do |file|
-        file.write(NKF.nkf('--ic=eucJP-ms --oc=UTF-8', open(source).read))
+        file.write(NKF.nkf('--ic=eucJP-ms --oc=UTF-8', source.read))
       end
     end
   end
