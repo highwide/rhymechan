@@ -39,7 +39,7 @@ messages = [
   },
   {
     created_by: 'katorie',
-    content: '結婚生活どうですか　楽しいですか　そうですか　末長くお幸せになりやがれ　このやろー！',
+    content: '結婚生活どうですか。楽しいですか。そうですか。末長くお幸せになりやがれ、このやろー！',
     icon: ICON_PATH.join('katorie.png')
   },
   {
@@ -74,7 +74,7 @@ messages = [
   },
   {
     created_by: 'kitamuu',
-    content: 'うっちー結婚おめでとう！ ワッツアップ！メーン！　いつまでも笑顔の絶えない家庭を築いていってね',
+    content: 'うっちー結婚おめでとう！ワッツアップ！メーン！いつまでも笑顔の絶えない家庭を築いていってね',
     icon: ICON_PATH.join('kitamuu.png')
   },
   {
