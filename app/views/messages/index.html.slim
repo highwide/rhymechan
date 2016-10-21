@@ -1,6 +1,3 @@
-section
-  = button_to 'Create New Message', new_message_path, method: :get
-
 section.flash
   p#notice = notice
 
@@ -14,8 +11,6 @@ section.messages
           .message__from
             span
               = fa_icon 'heart', text: message.created_by, right: true
-          .message__links
-            = link_to 'Edit', edit_message_path(message)
         .message__original
           h2 = message.content
       .message__candidates
@@ -25,20 +20,20 @@ section.video-wrapper
 
 javascript:
   $(document).on('turbolinks:load', function() {
-    $('.messages').children().each(function() {    
+    $('.messages').children().each(function() {
       var id = $(this).data('id');
-      
+
       var jqXHR = $.ajax({
         type: 'GET',
         url: '/messages/' + id + '.json'
       });
-      
+
       jqXHR.done(function(response) {
         var rhymes = response.rhymes;
         var messageCandidates = $(this).find('.message__candidates');
-        
+
         var i = 0;
-        
+
         while (i < rhymes.length) {
           var pronunciation = $('<span>').addClass('rhyme__phrase-pronunciation').html('(pronunciation: ' + rhymes[i].text.pronunciation);
           var vowel = $('<span>').addClass('rhyme__phrase-vowel').html(' vowel: ' + rhymes[i].text.vowel + ')');
@@ -48,12 +43,12 @@ javascript:
           rhymePhrase.append(vowel);
           rhymePhrase.append(' は');
           rhyme.append(rhymePhrase);
-          
+
           var candidateResultsTable = $('<table>').addClass('candidate__results__table')
           var candidateResults = $('<div>').addClass('candidate__results candidate__results--collapsed')
-          
+
           var j = 0;
-          
+
           while (j < rhymes[i].results.length) {
             var tr = $('<tr>');
             var tdWord = $('<td>').html(rhymes[i].results[j]._source.word);
@@ -63,15 +58,15 @@ javascript:
             candidateResultsTable.append(tr);
             j++;
           }
-          
+
           candidateResults.append(candidateResultsTable);
           rhyme.append(candidateResults);
           rhyme.append($('<p>').addClass('candidate__results__fumeru').html($('<b>').html('と踏める')))
-          
+
           rhyme.on('click', function() {
             $(this).find('.candidate__results').toggleClass('candidate__results--collapsed candidate__results--expanded');
           });
-          
+
           messageCandidates.append(rhyme);
           i++;
         }

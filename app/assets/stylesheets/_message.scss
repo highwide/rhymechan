@@ -39,15 +39,6 @@
       border-bottom: 1px solid;
     }
   }
-
-  .message__links {
-    @include span-columns(3 of 8);
-
-    @include media($medium-screen) {
-      @include span-columns(4 of 10);
-      text-align: right;
-    }
-  }
 }
 
 .message__original {
