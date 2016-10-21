@@ -93,6 +93,11 @@ messages = [
     icon: ICON_PATH.join('ikatsuki.png')
   },
   {
+    created_by: 'odailly',
+    content: '結婚おめでとう！皆からのお祝いメッセージが殺到！幸せな二人の関係はまるで熱湯！そんな姿を見て僕はちょっと嫉妬！',
+    icon: ICON_PATH.join('ikatsuki.png')
+  },
+  {
     created_by: 'shokola',
     content: 'ウッチー、ハッピー、みんなスキッ！',
     icon: ICON_PATH.join('shokola.png')
