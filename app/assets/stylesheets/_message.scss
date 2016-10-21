@@ -25,14 +25,14 @@
 
 .message__header-additional-data {
   .message__from {
-    @include span-columns(5 of 8);
+    @include span-columns(8 of 8);
 
     font-size: .8rem;
     font-weight: 400;
     text-transform: uppercase;
 
     @include media($medium-screen) {
-      @include span-columns(6 of 10);
+      @include span-columns(8 of 10);
     }
 
     span {
