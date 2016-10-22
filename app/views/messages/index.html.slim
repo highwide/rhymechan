@@ -14,6 +14,9 @@ section.messages
         .message__original
           h2 = message.content
       .message__candidates
+        .loading
+          .loading__spinner
+          = 'Now Loading...'
 
 section.video-wrapper
   iframe src="https://www.youtube.com/embed/7l9BJJo-IRc" frameborder="0" allowfullscreen="true"
@@ -31,6 +34,7 @@ javascript:
       jqXHR.done(function(response) {
         var rhymes = response.rhymes;
         var messageCandidates = $(this).find('.message__candidates');
+        $(messageCandidates).html('');
 
         var i = 0;
 
