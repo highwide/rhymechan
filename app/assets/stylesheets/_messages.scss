@@ -1,3 +1,7 @@
+.messages {
+  margin-top: 120px;
+}
+
 .message {
   @include outer-container;
   margin: 2rem auto 0;
