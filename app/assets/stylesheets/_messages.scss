@@ -89,6 +89,7 @@
 }
 
 .candidate__results {
+  color: $light-font-color;
   cursor: pointer;
   font-size: .8rem;
 
@@ -98,10 +99,14 @@
 }
 
 .candidate__results--collapsed {
+  border-bottom: 1px solid $light-gray;
   height: 2rem;
-  margin-top: 1rem;
-  opacity: .9;
+  margin: 1rem 0;
   overflow: hidden;
+
+  &:hover {
+    opacity: .7;
+  }
 }
 
 .candidate__results--collapsed::before {
