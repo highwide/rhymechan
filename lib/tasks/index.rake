@@ -1,5 +1,3 @@
-require 'nkf'
-
 namespace :index do
   desc 'はてなキーワードをダウンロードしてファイルに保存する'
   task get_keywords: :environment do
@@ -8,7 +6,7 @@ namespace :index do
         *%w(vendor keywords keywordlist_furigana_utf8.csv)
       ).to_s
       open(keywords_file, 'w') do |file|
-        file.write(NKF.nkf('--ic=eucJP-ms --oc=UTF-8', source.read))
+        file.write(source.read.encode(Encoding::UTF_8, Encoding::EUCJP_MS))
       end
     end
   end
