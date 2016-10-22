@@ -24,7 +24,7 @@ $ bin/rails index:get_keywords
 Then create Elasticsearch index (it takes a while) .
 
 ```
-$ bin/rails index:hatena
+$ bin/rails index:create
 ```
 
 Setup database.
@@ -51,7 +51,7 @@ $ docker-compose run rails bin/rails db:migrate
 $ docker-compose run rails bin/rails db:seed
 
 # Create Elasticsearch index
-$ docker-compose run rails bin/rails index:hatena
+$ docker-compose run rails bin/rails index:create
 ```
 
 You still need to set some environment variables. See `secrets.env.example` for further details.
