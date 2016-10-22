@@ -1,0 +1,45 @@
+// loading__spinner
+@mixin rotate-forever {
+  0% { @include transform(rotate(0deg)); }
+  100% { @include transform(rotate(360deg)); }
+}
+@-webkit-keyframes rotate-forever { @include rotate-forever; }
+@-moz-keyframes rotate-forever { @include rotate-forever; }
+@keyframes rotate-forever { @include rotate-forever; }
+
+// loading
+@-webkit-keyframes bright {
+  from { opacity: 0.7; }
+  to { opacity: 0.4; }
+}
+@-moz-keyframes bright {
+  from { opacity: 0.7; }
+  to { opacity: 0.4; }
+}
+@keyframes bright {
+  from { opacity: 0.7; }
+  to { opacity: 0.4; }
+}
+
+.loading {
+  @include animation-name(bright);
+  @include animation-duration(1s);
+  @include animation-iteration-count(infinite);
+  @include animation-direction(alternate);
+  @include animation-timing-function(ease-in-out);
+  margin-left: 10px;
+  margin-top: -20px;
+
+  .loading__spinner {
+    @include animation-duration(0.9s);
+    @include animation-iteration-count(infinite);
+    @include animation-name(rotate-forever);
+    @include animation-timing-function(linear);
+    @include size(12px);
+    border: 2px solid $base-font-color;
+    border-right-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
